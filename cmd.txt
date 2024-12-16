@@ -1,0 +1,41 @@
+# 1. Создание Dockerfile
+# FROM postgres:latest
+# ENV POSTGRES_USER=myuser
+# ENV POSTGRES_PASSWORD=mypassword
+# ENV POSTGRES_DB=mydatabase
+
+# 2. Создание Docker образа
+docker build -t my-postgres-image .
+
+# 3. Создание Docker тома
+docker volume create my-postgres-data
+
+# 4. Запуск контейнера с PostgreSQL
+docker run -d 
+  --name my-postgres-container 
+  -e POSTGRES_USER=myuser 
+  -e POSTGRES_PASSWORD=mypassword 
+  -e POSTGRES_DB=mydatabase 
+  -v my-postgres-data:/var/lib/postgresql/data 
+  -p 5432:5432 
+  my-postgres-image
+
+# 5. Проверка запущенных контейнеров
+docker ps
+
+# 6. Подключение к контейнеру 
+docker exec -it my-postgres-container psql -U myuser -d mydatabase\
+
+
+
+i 'C:\my_postgres_project\init_scripts\init.sql'
+   
+
+docker cp C:\my_postgres_project\init_scripts\init.sql d_cont:\init.sql
+   
+volume
+docker run --name d_cont -e POSTGRES_USER=usr -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=dbn -p 5432:5432 -v C:\data:/var/lib/postgresql/data -d postgres
+
+
+
+
